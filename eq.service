@@ -1,0 +1,17 @@
+[Unit]
+Description=My service
+
+[Service]
+ExecStart=/home/pi/development/audiostuff/start_all.sh
+WorkingDirectory=/home/pi/development/audiostuff
+StandardOutput=inherit
+StandardError=inherit
+Type=forking
+PIDFile=/var/run/fucklinux.pid
+RemainAfterExit=true
+Requires=dbus.socket
+Environment="DISPLAY=:0"
+Environment="XAUTHORITY=/home/pi/.Xauthority"
+
+[Install]
+WantedBy=graphical.target
